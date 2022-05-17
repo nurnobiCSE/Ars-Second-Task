@@ -6,3 +6,4 @@ from .models import *
 admin.site.register(create_post)
 admin.site.register(Stories)
 admin.site.register(Profile)
+admin.site.register(Registerd_user)

@@ -20,3 +20,11 @@ class Profile(models.Model):
     description = models.CharField(max_length=300,blank=True)
 
 
+class Registerd_user(models.Model):
+    name = models.CharField(max_length=25,blank=False)
+    email = models.CharField(max_length=25,blank=False)
+    password = models.CharField(max_length=25,blank=False)
+    rePass = models.CharField(max_length=25,blank=False)
+
+    def __str__(self):
+        return self.name
