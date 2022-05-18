@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
@@ -442,7 +443,7 @@
                                             <span class="available-stats online"></span>
                                         </div>
                                         <div class="media-body d-none d-md-block">
-                                            <h4>Josephin water</h4>
+                                            <h4>{{ user.first_name }}</h4>
                                             <span>active now</span>
                                         </div>
                                     </div>
@@ -1535,7 +1536,7 @@
                                         <span class="available-stats online"></span>
                                     </div>
                                     <div class="media-body d-none d-md-block">
-                                        <h4>Josephin water</h4>
+                                        <h4>Action</h4>
                                         <span>active now</span>
                                     </div>
                                 </div>
@@ -1589,12 +1590,12 @@
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{% url 'login' %}">
+                                            <a href="{% url 'logout' %}">
                                                 <div class="media">
                                                     <i data-feather="log-out"></i>
                                                     <div class="media-body">
                                                         <div>
-                                                            <h5 class="mt-0">logs out</h5>
+                                                            <h5 class="mt-0">log out</h5>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1832,9 +1833,9 @@
                                 </a>
                                 <div class="profile-detail">
                                     <a href="profile.html">
-                                        <h2>{{ profiles.name }}<span>❤</span></h2>
+                                        <h2>{{ user.first_name }}<span>❤</span></h2>
                                     </a>
-                                    <h5>{{ profiles.email }}</h5>
+                                    <h5>{{ user.username }}</h5>
                                     <div class="description">
                                         <p>{{ profiles.description }}</p>
                                     </div>
@@ -1906,7 +1907,7 @@
                                                     data-adaptive-background='1' alt="">
                                             </div>
                                             <div class="story-content">
-                                                <h6>josephin water</h6>
+                                                <h6>josephin wateggr</h6>
                                                 <span>active now</span>
                                             </div>
                                         </div>
@@ -2214,7 +2215,7 @@
                                             </a>
                                             <div class="media-body">
                                                 <a href="#">
-                                                    <h5>sufiya eliza</h5>
+                                                    <h5>{{data.author_name}}</h5>
                                                 </a>
                                                 <h6>30 mins ago</h6>
                                             </div>

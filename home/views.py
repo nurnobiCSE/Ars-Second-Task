@@ -8,20 +8,22 @@ from .models import *
 from .form import ImageForm
 # Create your views here.
 def index(request):
-    post = create_post.objects.all()
+    post = create_post.objects.all().order_by('-id')
     stori = Stories.objects.all()
     profiles = Profile.objects.last()
 
-    if request.method == "POST":
-        form = ImageForm(data=request.POST,files=request.FILES)
-        if form.is_valid():
-            form.save()
-            # obj = form.instance
-            # return render(request,"index.html",{"obj":obj})
-        # upload_data = request.FILES['upload']
-        # fss = FileSystemStorage()
-        # fss.save(upload_data.name, upload_data)
+    current_user = request.user
 
+
+    if request.method == "POST":
+        # form = ImageForm(data=request.POST, files=request.FILES)
+        form = create_post(
+            text= request.POST['text'],
+            upload=request.FILES['upload'],
+            author_name=current_user.first_name,
+        )
+        # if form.is_valid():
+        form.save()
         return redirect('index')
 
     context = {
@@ -63,6 +65,18 @@ def User_Register(request):
     return render(request,'register.html')
 
 def loginPage(request):
+    if request.method =="POST":
+        username = request.POST['email']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username,password=password)
+        if user is not None:
+            login(request,user)
+            return redirect('index')
 
     return render(request,'login.html')
+
+def logoutUser(request):
+    auth.logout(request)
+    return redirect('login')
 
