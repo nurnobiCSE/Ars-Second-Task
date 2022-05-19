@@ -13,12 +13,14 @@
     <title>Friendbook</title>
 
     <!--Google font-->
+     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,900|Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Theme css -->
     <link id="change-link" rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dropify.min.css' %}">
 
 </head>
 
@@ -2270,8 +2272,8 @@
 
                             </div>
                                 <ul class="create-btm-option">
-                                <li>
-                                    <input class="choose-file" type="file" name="upload">
+                                <li style="display:block">
+                                    <input class="dropify" type="file"  id="demo" name="upload">
                                     <h5><i class="iw-14" data-feather="camera"></i>albums</h5>
 
                                 </li>
@@ -4207,7 +4209,7 @@
                         </div>
                         <ul class="create-btm-option">
                             <li>
-                                <input class="choose-file" type="file">
+                                <input class="choose-file" type="file" >
                                 <h5><i class="iw-14" data-feather="camera"></i>album</h5>
                             </li>
                             <li>
@@ -5070,6 +5072,10 @@
 
     <!-- Theme js-->
     <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'js/dropify.min.js' %}"></script>
+    <script>
+        	$('.dropify').dropify();
+    </script>
 
     <script>
         feather.replace();
