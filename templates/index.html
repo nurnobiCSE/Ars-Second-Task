@@ -2293,9 +2293,9 @@
                   </li>
 
                             </ul>
-                            <div id="post-btn" class="post-btn">
-                                <button type="submit" class="bt-primary">POST</button>
-                            </div>
+<!--                            <div id="post-btn" class="post-btn">-->
+<!--                                <button type="submit" class="bt-primary">POST</button>-->
+<!--                            </div>-->
                             </div>
 
                             <div class="options-input" id="additional-input">
@@ -2303,16 +2303,16 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x iw-15 icon-font-light icon-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                   </a>
                   <div class="search-input feeling-input">
-                    <input type="text" class="form-control enable" list="feelings" placeholder="How Are You Feeling?">
+                    <input type="text" name="feelings" class="form-control enable" list="feelings" placeholder="How Are You Feeling?">
                     <datalist id="feelings">
                       <option value="Happy"></option>
-                      <option value="Sad"></option>
-                      <option value="Angry"></option>
+                      <option value="Sad" ></option>
+                      <option value="Angry" ></option>
                       <option value="Worried"></option>
                       <option value="Shy"></option>
                       <option value="Excited"></option>
                       <option value="Surprised"></option>
-                      <option value="Silly"></option>
+                      <option value="Silly" ></option>
                       <option value="Embarrassed"></option>
                     </datalist>
 
@@ -2321,7 +2321,7 @@
                     </a>
                   </div>
                   <div class="search-input place-input">
-                    <input type="text" class="form-control" placeholder="search for places...">
+                    <input type="text" name="places" class="form-control" placeholder="search for places...">
                     <a href="#">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin iw-15 icon-left icon-font-light"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </a>
@@ -2342,6 +2342,9 @@
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag iw-15 icon-left icon-font-light"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
                     </a>
                   </div>
+                            <div id="post-btn" class="post-btn">
+                                <button type="submit" class="bt-primary">POST</button>
+                            </div>
                 </div>
 
                         </div>
@@ -2418,6 +2421,7 @@
                                         </div>
                                     </div>
                                     <div class="detail-box">
+                                        <h3><p class="text-primary">Feelings~#{{ data.feelings }}</p><p class="text-info">at-#{{ data.places }}</p></h3>
                                         <h4>{{ data.text }}</h4>
 <!--                                        <h5 class="tag"><span>#ourcutepuppy,</span> #puppy, #birthday, #dog</h5>-->
 <!--                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->

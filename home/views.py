@@ -21,6 +21,8 @@ def index(request):
             text= request.POST['text'],
             upload=request.FILES['upload'],
             author_name=current_user.first_name,
+            feelings = request.POST['feelings'],
+            places = request.POST['places']
         )
         # if form.is_valid():
         form.save()
