@@ -14,6 +14,7 @@ class create_post(models.Model):
         return self.text
 
 class Stories(models.Model):
+    author_name = models.CharField(max_length=100, blank=True)
     img = models.ImageField(blank=True,upload_to='storisImg/')
     title = models.CharField(max_length=200,blank=True)
 

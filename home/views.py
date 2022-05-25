@@ -9,24 +9,32 @@ from .form import ImageForm
 # Create your views here.
 def index(request):
     post = create_post.objects.all().order_by('-id')
-    stori = Stories.objects.all()
+    stori = Stories.objects.all().order_by('-id')
     profiles = Profile.objects.last()
 
     current_user = request.user
 
 
     if request.method == "POST":
-        # form = ImageForm(data=request.POST, files=request.FILES)
-        form = create_post(
-            text= request.POST['text'],
-            upload=request.FILES['upload'],
-            author_name=current_user.first_name,
-            feelings = request.POST['feelings'],
-            places = request.POST['places']
-        )
-        # if form.is_valid():
-        form.save()
-        return redirect('index')
+        if request.POST.get('text'):
+            form = create_post(
+                text=request.POST['text'],
+                upload=request.FILES['upload'],
+                author_name=current_user.first_name,
+                feelings=request.POST['feelings'],
+                places=request.POST['places']
+            )
+            form.save()
+            return redirect('index')
+        if request.POST.get('stories_text'):
+            form2 = Stories(
+                img=request.FILES['stories_files'],
+                title=request.POST['stories_text'],
+
+            )
+            form2.save()
+            return redirect('index')
+
 
     context = {
         'post':post,

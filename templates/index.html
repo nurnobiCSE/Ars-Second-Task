@@ -1724,11 +1724,11 @@
             <div class="story-section ratio_115">
                 <div class="slide-8 no-arrow default-space">
                     <div>
-                        <div class="story-box add-box">
+                        <div class="story-box add-box"  data-bs-target="#addStory" data-bs-toggle="modal">
                             <div>
                                 <img src="{% static 'images/img.jpg' %}" class="img-fluid blur-up lazyload bg-img"
                                     alt="">
-                                <div class="add-icon">
+                                <div class="add-icon" data-bs-target="#addStory" data-bs-toggle="modal">
                                     <div class="icon">
                                         <img src="{% static 'images/img.jpg' %}" class="img-fluid blur-up lazyload"
                                             alt="plus">
@@ -1742,17 +1742,17 @@
 
 <!--                    start stories-->
 
-
+                       {% for datas in stori %}
 
                        <div>
                         <div class="story-box" data-bs-toggle="modal" data-bs-target="#storyModel">
                             <div class="adaptive-overlay orange-overlay"></div>
                             <div class="story-bg">
-                                <img src=" " class="img-fluid bg-img"
+                                <img src="{{ datas.img.url }}" class="img-fluid bg-img"
                                     data-adaptive-background='1' alt="">
                             </div>
                             <div class="story-content">
-                                <h6>one post</h6>
+                                <h6>{{ datas.title }}</h6>
                                 <span>active now</span>
                             </div>
                             <div class="story-setting setting-dropdown">
@@ -1777,7 +1777,7 @@
                         </div>
                     </div>
 
-
+                    {% endfor %}
 
 
                    <!--end stories-->
@@ -4105,10 +4105,13 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body p-0">
+<!--                    start final stories form-->
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
                     <div class="create-post">
                         <div class="static-section">
                             <div class="card-title">
-                                <h3>create post</h3>
+                                <h3>create stories</h3>
                                 <ul class="create-option">
                                     <li class="options">
                                         <div class="setting-dropdown">
@@ -4173,8 +4176,9 @@
                                     </div>
                                 </div>
                             </div>
+<!--                            tep form start-->
                             <div class="search-input input-style icon-right">
-                                <input type="text" class="form-control enable" placeholder="write something here..">
+                                <input type="text" name="stories_text" class="form-control enable" placeholder="write stori">
                                 <a href="#">
                                     <img src="../assets/images/icon/translate.png"
                                         class="img-fluid blur-up lazyload icon" alt="translate">
@@ -4213,7 +4217,7 @@
                         </div>
                         <ul class="create-btm-option">
                             <li>
-                                <input class="choose-file" type="file" >
+                                <input class="dropify" id="demo" type="file" name="stories_files">
                                 <h5><i class="iw-14" data-feather="camera"></i>album</h5>
                             </li>
                             <li>
@@ -4227,9 +4231,11 @@
                             </li>
                         </ul>
                         <div id="post-btn1" class="post-btn">
-                            <button disabled="disabled" class="Disable">post</button>
+                            <button disabled="disabled" class="Disable">add stories</button>
                         </div>
                     </div>
+                    </form>
+<!--                    end final form-->
                 </div>
             </div>
         </div>
