@@ -33,3 +33,7 @@ class Registerd_user(models.Model):
 
     def __str__(self):
         return self.name
+
+class Comment_section(models.Model):
+    comment_author = models.CharField(max_length=100,blank=True,null=True)
+    comment = models.CharField(max_length=1000,blank=True,null=True)

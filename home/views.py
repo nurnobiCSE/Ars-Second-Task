@@ -11,6 +11,7 @@ def index(request):
     post = create_post.objects.all().order_by('-id')
     stori = Stories.objects.all().order_by('-id')
     profiles = Profile.objects.last()
+    comments = Comment_section.objects.all()
 
     current_user = request.user
 
@@ -34,12 +35,19 @@ def index(request):
             )
             form2.save()
             return redirect('index')
-
+        if request.POST.get('comment'):
+            cmnt_form = Comment_section(
+                comment_author = current_user.first_name,
+                comment = request.POST['comment']
+            )
+            cmnt_form.save()
+            return redirect('index')
 
     context = {
         'post':post,
         'stori':stori,
-        'profiles':profiles
+        'profiles':profiles,
+        'comments':comments,
     }
     return render(request,'index.html',context)
 
